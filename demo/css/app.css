@@ -1,0 +1,32 @@
+body{
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+  padding: 0;
+  margin: 0;
+}
+
+nav{
+  position: fixed;
+  background: rgba(0,0,0, .2);
+  width: 100%;
+  top:0;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+}
+nav a{
+  margin: 0 15px;
+  text-decoration: none;
+  color: #000;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+nav a.main-nav__item--active{
+  color: #4286f4;
+}
+section{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
