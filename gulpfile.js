@@ -8,7 +8,8 @@ var gulp = require('gulp'),
   uglify = require('gulp-uglify'),
   gulpif = require('gulp-if'),
   gutil = require('gulp-util'),
-  gulpSequence = require('gulp-sequence');
+  gulpSequence = require('gulp-sequence'),
+  babel = require('gulp-babel-compile');
 
 var config = {
   production: !!gutil.env.prod
@@ -53,6 +54,15 @@ gulp.task('scripts', () => {
   .pipe(gulpif(!config.production, browserSync.stream()));
 });
 
+gulp.task('scripts-cjs', () => {
+  gulp.src('js/active-scroll.js')
+    .pipe(babel({
+      presets: ['es2015', 'react', 'stage-2'],
+      plugins: ["transform-es2015-modules-commonjs"]
+    }))
+    .pipe(uglify())
+    .pipe(gulp.dest('dist'));
+});
 
 gulp.task('default', gulpSequence('browserSync'));
-gulp.task('build', gulpSequence('scripts'));
+gulp.task('build', gulpSequence('scripts-cjs'));

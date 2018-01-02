@@ -1,8 +1,8 @@
 {
   "name": "active-scroll-navigation",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Navigation will change active state when user scroll. ",
-  "main": "index.js",
+  "main": "dist/active-scroll.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -25,6 +25,7 @@
     "browser-sync": "^2.23.2",
     "browserify": "^14.5.0",
     "gulp": "^3.9.1",
+    "gulp-babel-compile": "0.0.3",
     "gulp-if": "^2.0.2",
     "gulp-load-plugins": "^1.5.0",
     "gulp-sequence": "^1.0.0",
