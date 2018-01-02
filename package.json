@@ -1,6 +1,6 @@
 {
   "name": "active-scroll-navigation",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Navigation will change active state when user scroll. ",
   "main": "index.js",
   "scripts": {
@@ -11,8 +11,8 @@
     "Acive scrolling navigation"
   ],
   "repository": {
-   "type": "git",
-   "url": "https://github.com/cagosto/active-scroll-navigation"
+    "type": "git",
+    "url": "https://github.com/cagosto/active-scroll-navigation"
   },
   "author": "carlos agosto",
   "license": "ISC",
@@ -33,5 +33,8 @@
     "gulp-util": "^3.0.8",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
+  },
+  "dependencies": {
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0"
   }
 }

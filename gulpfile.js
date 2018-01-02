@@ -43,13 +43,12 @@ gulp.task('scripts', () => {
   .on('error', gutil.log.bind(gutil, 'Browserify Error'))
   .pipe(source('index.js'))
   .pipe(buffer())
-  .pipe(gulpif(config.production, uglify()))
   .pipe(gulpif(!config.production, plugins().sourcemaps.init({
     'loadMaps': true
   })))
   .pipe(gulpif(!config.production, plugins().sourcemaps.write('.')))
   .pipe(config.production
-    ? gulp.dest('./')
+    ? gulp.dest('./dist')
     : gulp.dest('./demo/js/'))
   .pipe(gulpif(!config.production, browserSync.stream()));
 });

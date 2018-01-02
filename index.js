@@ -1,1 +1,109 @@
-!function e(t,r,n){function i(s,a){if(!r[s]){if(!t[s]){var c="function"==typeof require&&require;if(!a&&c)return c(s,!0);if(o)return o(s,!0);var v=new Error("Cannot find module '"+s+"'");throw v.code="MODULE_NOT_FOUND",v}var f=r[s]={exports:{}};t[s][0].call(f.exports,function(e){var r=t[s][1][e];return i(r||e)},f,f.exports,e,t,r,n)}return r[s].exports}for(var o="function"==typeof require&&require,s=0;s<n.length;s++)i(n[s]);return i}({1:[function(e,t,r){"use strict";Object.defineProperty(r,"__esModule",{value:!0});var n=function(){function e(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,r,n){return r&&e(t.prototype,r),n&&e(t,n),t}}();var i=function(){function e(t){var r=this;!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),this.activeItem=0,this.scrollLocation=function(e){for(var t=void 0,n=0;n<r.pros.length;n++)if(n<r.pros.length-1){var i=r.pros[n+1];if(e>=r.pros[n]&&e<i){t=n;break}}else n===r.pros.length-1&&e>=r.pros[n]&&(t=n);return t},this.checkNav=function(e){var t=r.scrollLocation(window.pageYOffset),n=r.activeItem;r.activeItem!==t&&(r.activeItem=t,r.navItems[n].classList.remove(r.activeString),r.navItems[t].classList.add(r.activeString))},this.nav=document.querySelector(t.nav),this.offSet=t.offSet||0,this.navItems=this.nav.children,this.activeString=t.activeClass||"main-nav__item--active",this.setPros(),this.eventsSroll(),this.events()}return n(e,[{key:"setPros",value:function(){this.pros=[];for(var e=0;e<this.navItems.length;e++){var t=this.navItems[e].getAttribute("href"),r=document.querySelector(t);this.pros.push(r.offsetTop-this.offSet)}}},{key:"eventsSroll",value:function(){window.addEventListener("scroll",this.checkNav,!1)}},{key:"events",value:function(){window.addEventListener("resize",this.setPros,!1)}},{key:"eventsSrollOff",value:function(){window.removeEventListener("scroll",this.checkNav,!1)}}]),e}();r.default=i},{}]},{},[1]);
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = (function() {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+  return function(Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) defineProperties(Constructor, staticProps);
+    return Constructor;
+  };
+})();
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+var ACTIVE_SCROLL = (function() {
+  function ACTIVE_SCROLL(settings) {
+    var _this = this;
+
+    _classCallCheck(this, ACTIVE_SCROLL);
+
+    this.activeItem = 0;
+
+    this.scrollLocation = function(target) {
+      var match = void 0;
+      for (var i = 0; i < _this.pros.length; i++) {
+        if (i < _this.pros.length - 1) {
+          var next = _this.pros[i + 1];
+
+          if (target >= _this.pros[i] && target < next) {
+            match = i;
+            break;
+          }
+        } else if (i === _this.pros.length - 1 && target >= _this.pros[i]) {
+          match = i;
+        }
+      }
+      return match;
+    };
+
+    this.checkNav = function(e) {
+      var index = _this.scrollLocation(window.pageYOffset);
+      var current = _this.activeItem;
+      if (_this.activeItem !== index) {
+        _this.activeItem = index;
+        _this.navItems[current].classList.remove(_this.activeString);
+        _this.navItems[index].classList.add(_this.activeString);
+      }
+    };
+
+    this.nav = document.querySelector(settings.nav);
+    this.offSet = settings.offSet || 0;
+    this.navItems = this.nav.children;
+    this.activeString = settings.activeClass || "main-nav__item--active";
+    this.setPros();
+    this.eventsSroll();
+    this.events();
+  }
+
+  _createClass(ACTIVE_SCROLL, [
+    {
+      key: "setPros",
+      value: function setPros() {
+        this.pros = [];
+        for (var i = 0; i < this.navItems.length; i++) {
+          var id = this.navItems[i].getAttribute("href");
+          var section = document.querySelector(id);
+          this.pros.push(section.offsetTop - this.offSet);
+        }
+      }
+    },
+    {
+      key: "eventsSroll",
+      value: function eventsSroll() {
+        window.addEventListener("scroll", this.checkNav, false);
+      }
+    },
+    {
+      key: "events",
+      value: function events() {
+        window.addEventListener("resize", this.setPros, false);
+      }
+    },
+    {
+      key: "eventsSrollOff",
+      value: function eventsSrollOff() {
+        window.removeEventListener("scroll", this.checkNav, false);
+      }
+    }
+  ]);
+
+  return ACTIVE_SCROLL;
+})();
+
+exports.default = ACTIVE_SCROLL;

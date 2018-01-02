@@ -1,4 +1,4 @@
-class ACTIVE_SCROLL {
+export default class ACTIVE_SCROLL {
   constructor(settings) {
     this.nav = document.querySelector(settings.nav);
     this.offSet = settings.offSet || 0;
@@ -54,5 +54,3 @@ class ACTIVE_SCROLL {
     }
   }
 }
-
-export default ACTIVE_SCROLL;

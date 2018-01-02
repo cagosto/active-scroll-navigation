@@ -49,6 +49,7 @@ var ACTIVE_SCROLL = function () {
     this.navItems = this.nav.children;
     this.activeString = settings.activeClass || 'main-nav__item--active';
     this.setPros();
+    this.eventsSroll();
     this.events();
   }
 
@@ -63,9 +64,19 @@ var ACTIVE_SCROLL = function () {
       }
     }
   }, {
+    key: 'eventsSroll',
+    value: function eventsSroll() {
+      window.addEventListener('scroll', this.checkNav, false);
+    }
+  }, {
     key: 'events',
     value: function events() {
-      window.addEventListener('scroll', this.checkNav, false);
+      window.addEventListener('resize', this.setPros, false);
+    }
+  }, {
+    key: 'eventsSrollOff',
+    value: function eventsSrollOff() {
+      window.removeEventListener('scroll', this.checkNav, false);
     }
   }]);
 
