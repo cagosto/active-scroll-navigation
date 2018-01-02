@@ -5,6 +5,7 @@ class ACTIVE_SCROLL {
     this.navItems = this.nav.children;
     this.activeString = settings.activeClass || 'main-nav__item--active';
     this.setPros();
+    this.eventsSroll();
     this.events();
   }
   activeItem = 0
@@ -16,8 +17,14 @@ class ACTIVE_SCROLL {
       this.pros.push(section.offsetTop - this.offSet);
     }
   }
-  events() {
+  eventsSroll() {
     window.addEventListener('scroll', this.checkNav, false);
+  }
+  events(){
+    window.addEventListener('resize', this.setPros, false);
+  }
+  eventsSrollOff(){
+    window.removeEventListener('scroll', this.checkNav, false);
   }
   scrollLocation = (target) => {
     let match;
