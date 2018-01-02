@@ -25,10 +25,12 @@ gulp.task('browserSync', ['scripts'],   function() {
   gulp.watch("./demo/*.html").on('change', browserSync.reload);
 });
 
+var srcFile = config.production ? './js/active-scroll.js' : './js/index.js';
+
 
 gulp.task('scripts', () => {
   browserify({
-    'entries': ['./js/index.js'],
+    'entries': [srcFile],
     'debug': true,
     'paths': ['./js/'],
     'transform': [
@@ -46,9 +48,12 @@ gulp.task('scripts', () => {
     'loadMaps': true
   })))
   .pipe(gulpif(!config.production, plugins().sourcemaps.write('.')))
-  .pipe(gulp.dest('./demo/js/'))
+  .pipe(config.production
+    ? gulp.dest('./')
+    : gulp.dest('./demo/js/'))
   .pipe(gulpif(!config.production, browserSync.stream()));
 });
 
 
 gulp.task('default', gulpSequence('browserSync'));
+gulp.task('build', gulpSequence('scripts'));
