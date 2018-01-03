@@ -8,7 +8,7 @@ This is a plain JavaScript Class that change the acitive navition item while the
 
 [https://codepen.io/Cagosto/pen/opwJoK](https://codepen.io/Cagosto/pen/opwJoK)
 
-### Installation
+## Installation
 
 Get if from npm
 
@@ -22,17 +22,17 @@ import it in your app
 
 ```
 new ACTIVE_SCROLL({
-	nav: String | '.main-nav' | '#main-nav',
-    offSet: Num | default 0,
-    activeString: String | default 'main-nav__item—active'
+  nav: String | '.main-nav' | '#main-nav',
+  offSet: Num | default 0,
+  activeString: String | default 'main-nav__item—active'
 });
 ```
 
 ### Get Active Index
 
 ```
-	const activeScroll = new ACTIVE_SCROLL();
-    activeScroll.activeItem
+  const activeScroll = new ACTIVE_SCROLL();
+  activeScroll.activeItem
 ```
 
 ### Toggle Scroll
