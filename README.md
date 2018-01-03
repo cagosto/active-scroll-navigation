@@ -37,7 +37,9 @@ new ACTIVE_SCROLL({
 
 ### Toggle Scroll
 ```
-	const activeScroll = new ACTIVE_SCROLL();
-    activeScroll.eventsSrollOff() //Stop Scroll Listener
-    activeScroll.eventsSroll() //Start Scroll Listener
+  const activeScroll = new ACTIVE_SCROLL();
+  
+  activeScroll.eventsSrollOff() //Stop Scroll Listener
+  
+  activeScroll.eventsSroll() //Start Scroll Listener
 ```
