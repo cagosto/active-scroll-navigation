@@ -36,7 +36,7 @@ gulp.task('scripts', () => {
     'paths': ['./js/'],
     'transform': [
       babelify.configure({
-        'presets': ['es2015', 'react', 'stage-2']
+        'presets': ['env', 'react', 'stage-2']
       })
     ]
   })
@@ -57,7 +57,7 @@ gulp.task('scripts', () => {
 gulp.task('scripts-cjs', () => {
   gulp.src('js/active-scroll.js')
     .pipe(babel({
-      presets: ['es2015', 'react', 'stage-2'],
+      presets: ['env', 'react', 'stage-2'],
       plugins: ["transform-es2015-modules-commonjs"]
     }))
     .pipe(uglify())
