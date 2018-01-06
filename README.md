@@ -32,7 +32,7 @@ new ACTIVE_SCROLL({
 
 ```
 const activeScroll = new ACTIVE_SCROLL();
-activeScroll.activeItem
+let index = activeScroll.activeItem();
 ```
 
 ### Toggle Scroll
