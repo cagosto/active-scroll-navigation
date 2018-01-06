@@ -31,15 +31,15 @@ new ACTIVE_SCROLL({
 ### Get Active Index
 
 ```
-  const activeScroll = new ACTIVE_SCROLL();
-  activeScroll.activeItem
+const activeScroll = new ACTIVE_SCROLL();
+activeScroll.activeItem
 ```
 
 ### Toggle Scroll
 ```
-  const activeScroll = new ACTIVE_SCROLL();
+const activeScroll = new ACTIVE_SCROLL();
   
-  activeScroll.eventsSrollOff() //Stop Scroll Listener
+activeScroll.eventsSrollOff() //Stop Scroll Listener
   
-  activeScroll.eventsSroll() //Start Scroll Listener
+activeScroll.eventsSroll() //Start Scroll Listener
 ```
