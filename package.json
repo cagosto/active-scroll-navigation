@@ -1,6 +1,6 @@
 {
   "name": "active-scroll-navigation",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Navigation will change active state when user scroll. ",
   "main": "dist/active-scroll.js",
   "scripts": {
@@ -8,7 +8,9 @@
   },
   "keywords": [
     "Active scroll",
-    "Acive scrolling navigation"
+    "Acive scrolling navigation",
+    "navigation",
+    "active menu item"
   ],
   "repository": {
     "type": "git",
