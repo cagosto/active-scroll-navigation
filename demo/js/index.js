@@ -48,6 +48,7 @@ var ACTIVE_SCROLL = function () {
     this.offSet = settings.offSet || 0;
     this.navItems = this.nav.children;
     this.activeString = settings.activeClass || 'main-nav__item--active';
+    this.setPros = this.setPros.bind(this);
     this.setPros();
     this.eventsSroll();
     this.events();
