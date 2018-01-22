@@ -15,10 +15,10 @@ var config = {
   production: !!gutil.env.prod
 };
 
-gulp.task('browserSync', ['scripts'],   function() {
+gulp.task('browserSync', ['scripts'], function() {
   browserSync.init({
     server: {
-       baseDir: "./demo"
+      baseDir: "./demo"
     }
   });
   gulp.watch("./js/**/**.js", ['scripts']);
@@ -27,7 +27,6 @@ gulp.task('browserSync', ['scripts'],   function() {
 });
 
 var srcFile = config.production ? './js/active-scroll.js' : './js/index.js';
-
 
 gulp.task('scripts', () => {
   browserify({
