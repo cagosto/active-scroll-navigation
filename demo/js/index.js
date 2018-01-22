@@ -35,8 +35,8 @@ var ACTIVE_SCROLL = function () {
     };
 
     this.checkNav = function (e) {
-      var index = _this.scrollLocation(window.pageYOffset);
-      var current = _this.activeItem;
+      var index = _this.scrollLocation(window.pageYOffset),
+          current = _this.activeItem;
       if (_this.activeItem !== index) {
         _this.activeItem = index;
         _this.navItems[current].classList.remove(_this.activeString);

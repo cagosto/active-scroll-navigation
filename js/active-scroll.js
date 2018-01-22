@@ -46,8 +46,8 @@ export default class ACTIVE_SCROLL {
     return match;
   }
   checkNav = (e) => {
-    let index = this.scrollLocation(window.pageYOffset);
-    let current = this.activeItem;
+    let index = this.scrollLocation(window.pageYOffset),
+      current = this.activeItem;
     if(this.activeItem !== index){
       this.activeItem = index;
       this.navItems[current].classList.remove(this.activeString);
