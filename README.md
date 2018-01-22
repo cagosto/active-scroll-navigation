@@ -2,7 +2,7 @@
 
 ## Whats This
 
-This is a plain JavaScript Class that change the acitive navition item while the user scroll up/down the page.  It has options for active class name and scroll offset.  You can also turn the event listerer for window scroll on and off if need along with retreaving the active item index.
+This is a plain JavaScript Class that changes the active navigation item while the user scroll up/down the page.  It has options for active class name and scroll offset.  You can also turn the event listener for window scroll on and off if need along with retrieving the active item index.
 
 ## Demo Link
 
@@ -38,8 +38,8 @@ let index = activeScroll.activeItem();
 ### Toggle Scroll
 ```
 const activeScroll = new ACTIVE_SCROLL();
-  
+
 activeScroll.eventsSrollOff() //Stop Scroll Listener
-  
+
 activeScroll.eventsSroll() //Start Scroll Listener
 ```
