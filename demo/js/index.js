@@ -9,7 +9,18 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+/**
+ * ACTIVE_SCROLL - Change acitve navigation item while scrolling
+ * config example
+ * {
+     nav: '.main-nav'
+   }
+ */
 var ACTIVE_SCROLL = function () {
+  /**
+   * constructor
+   * @param {Obj} settings - config for class
+   */
   function ACTIVE_SCROLL(settings) {
     var _this = this;
 
@@ -17,27 +28,36 @@ var ACTIVE_SCROLL = function () {
 
     this.activeItem = 0;
 
-    this.scrollLocation = function (target) {
+    this.setPros = function () {
+      _this.pros = [];
+      _this.navArray.forEach(function (nav) {
+        var id = nav.getAttribute('href');
+        var section = document.querySelector(id);
+        _this.pros.push(section.offsetTop - _this.offSet);
+      });
+    };
+
+    this.scrollLocation = function (winY) {
       var match = void 0;
       for (var i = 0; i < _this.pros.length; i++) {
         if (i < _this.pros.length - 1) {
           var next = _this.pros[i + 1];
 
-          if (target >= _this.pros[i] && target < next) {
-            match = i;
-            break;
+          if (winY >= _this.pros[i] && winY < next) {
+            return match = i;
           }
-        } else if (i === _this.pros.length - 1 && target >= _this.pros[i]) {
-          match = i;
+        } else if (i === _this.pros.length - 1 && winY >= _this.pros[i]) {
+          return match = i;
         }
       }
-      return match;
     };
 
     this.checkNav = function (e) {
-      var index = _this.scrollLocation(window.pageYOffset),
-          current = _this.activeItem;
+      var index = _this.scrollLocation(window.pageYOffset);
+
       if (_this.activeItem !== index) {
+        var current = _this.activeItem;
+
         _this.activeItem = index;
         _this.navItems[current].classList.remove(_this.activeString);
         _this.navItems[index].classList.add(_this.activeString);
@@ -47,24 +67,18 @@ var ACTIVE_SCROLL = function () {
     this.nav = document.querySelector(settings.nav);
     this.offSet = settings.offSet || 0;
     this.navItems = this.nav.children;
+    this.navArray = Array.from(this.navItems);
     this.activeString = settings.activeClass || 'main-nav__item--active';
-    this.setPros = this.setPros.bind(this);
     this.setPros();
     this.eventsSroll();
     this.events();
   }
+  /**
+   * setPros - Set position for when navigation items should change.
+   */
+
 
   _createClass(ACTIVE_SCROLL, [{
-    key: 'setPros',
-    value: function setPros() {
-      this.pros = [];
-      for (var i = 0; i < this.navItems.length; i++) {
-        var id = this.navItems[i].getAttribute('href');
-        var section = document.querySelector(id);
-        this.pros.push(section.offsetTop - this.offSet);
-      }
-    }
-  }, {
     key: 'eventsSroll',
     value: function eventsSroll() {
       window.addEventListener('scroll', this.checkNav, false);
@@ -79,6 +93,17 @@ var ACTIVE_SCROLL = function () {
     value: function eventsSrollOff() {
       window.removeEventListener('scroll', this.checkNav, false);
     }
+    /**
+     * scrollLocation - check to see if navigation need to be updated
+     * @param  {Num} winY - window y position
+     * @return {Num} - index of loop match
+     */
+
+    /**
+     * checkNav - Scroll event callback
+     * @param  {Obj} e - window scroll event object
+     */
+
   }]);
 
   return ACTIVE_SCROLL;
