@@ -1,6 +1,6 @@
 {
   "name": "active-scroll-navigation",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "Navigation will change active state when user scroll. ",
   "main": "dist/active-scroll.js",
   "scripts": {
