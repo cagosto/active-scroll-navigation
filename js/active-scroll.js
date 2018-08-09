@@ -11,14 +11,14 @@ export default class ACTIVE_SCROLL {
    * @param {Obj} settings - config for class
    */
   constructor(settings) {
-    this.nav = document.querySelector(settings.nav);
-    this.offSet = settings.offSet || 0;
-    this.navItems = this.nav.children;
+    this.nav = document.querySelector(settings.nav)
+    this.offSet = settings.offSet || 0
+    this.navItems = this.nav.children
     this.navArray = Array.from(this.navItems)
-    this.activeString = settings.activeClass || 'main-nav__item--active';
-    this.setPros();
-    this.eventsSroll();
-    this.events();
+    this.activeString = settings.activeClass || 'main-nav__item--active'
+    this.setPros()
+    this.eventsSroll()
+    this.events()
   }
   activeItem = 0
   /**
@@ -47,17 +47,16 @@ export default class ACTIVE_SCROLL {
    * @return {Num} - index of loop match
    */
   scrollLocation = (winY) => {
-    let match;
     for (var i = 0; i < this.pros.length; i++) {
       if (i < this.pros.length - 1) {
-        let next = this.pros[i + 1];
+        const next = this.pros[i + 1];
 
         if (winY >= (this.pros[i]) && winY < next) {
-          return match = i;
+          return i;
         }
 
       } else if (i === this.pros.length - 1 && winY >= this.pros[i]) {
-        return match = i;
+        return i;
       }
     }
   }

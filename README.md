@@ -18,24 +18,29 @@ import it in your app
 
 `import ACTIVE_SCROLL from 'active-scroll-navigation'`
 
-### How to use
-
+## How to use
 ```
 new ACTIVE_SCROLL({
-  nav: String | '.main-nav' | '#main-nav',
-  offSet: Num | default 0,
-  activeString: String | default 'main-nav__item—active'
+  nav: '.main-nav'
+  offSet: 0,
+  activeString: 'main-nav__item—active'
 });
 ```
 
-### Get Active Index
+### Settings
+Name  | Type  | Required | Value
+------|-------|----------|
+nav   | String  |  True | ""
+offSet  | Num  |  False | 0
+activeString  | String   | True  | main-nav__item--active  
 
+### Get Active Index
 ```
 const activeScroll = new ACTIVE_SCROLL();
 let index = activeScroll.activeItem();
 ```
 
-### Toggle Scroll
+### Events
 ```
 const activeScroll = new ACTIVE_SCROLL();
 
