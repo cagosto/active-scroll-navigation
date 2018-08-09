@@ -28,11 +28,11 @@ new ACTIVE_SCROLL({
 ```
 
 ### Settings
-Name  | Type  | Required | Value
-------|-------|----------|
-nav   | String  |  True | ""
-offSet  | Num  |  False | 0
-activeString  | String   | True  | main-nav__item--active  
+Name          | Type    | Required | Value                  |
+--------------|---------|----------|------------------------|
+nav           | String  | True     | ""                     |
+offSet        | Num     | False    | 0                      |
+activeString  | String  | True     | main-nav__item--active |
 
 ### Get Active Index
 ```
